@@ -5,6 +5,7 @@ public class Board : MonoBehaviour
     private int height = 7;
     private int width = 7;
     [SerializeField] private GameObject tilePrefab;
+    [SerializeField] private Gem[] gems;
     private void Start()
     {
         SetUpBackground();
@@ -19,7 +20,16 @@ public class Board : MonoBehaviour
                 GameObject tileBG = Instantiate(tilePrefab, position, Quaternion.identity);
                 tileBG.transform.parent = transform;
                 tileBG.name = "BG_Tile - " + x + ", " + y;
+
+                int gemToUse = Random.Range(0, gems.Length);
+                SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
             }
         }
+    }
+    private void SpawnGem(Vector2Int position, Gem gemToSpawn)
+    {
+        Gem gem = Instantiate(gemToSpawn, new Vector3(position.x, position.y, 0f), Quaternion.identity);
+        gem.transform.parent = this.transform;
+        gem.name = "Gem - " + position.x + ", " + position.y;
     }
 }
