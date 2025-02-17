@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
-    private int height = 7;
-    private int width = 7;
+    [HideInInspector] public int height = 7;
+    [HideInInspector] public int width = 7;
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private Gem[] gems;
+    public Gem[,] allGems;
+    public float gemSpeed;
     private void Start()
     {
+        allGems = new Gem[width, height];
         SetUpBackground();
     }
     private void SetUpBackground()
@@ -29,7 +32,9 @@ public class Board : MonoBehaviour
     private void SpawnGem(Vector2Int position, Gem gemToSpawn)
     {
         Gem gem = Instantiate(gemToSpawn, new Vector3(position.x, position.y, 0f), Quaternion.identity);
-        gem.transform.parent = this.transform;
+        gem.transform.parent = transform;
         gem.name = "Gem - " + position.x + ", " + position.y;
+        allGems[position.x, position.y] = gem;
+        gem.SetUpGem(position, this);
     }
 }

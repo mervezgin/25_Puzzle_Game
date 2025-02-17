@@ -384,6 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160c5ee89da8448beb3bf0302247f261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  height: 7
+  width: 7
   tilePrefab: {fileID: 4322308662581976329, guid: 201b502e00e454fdda56f14293d5566e, type: 3}
   gems:
   - {fileID: 8634170300799077951, guid: c34134507f7f54e6b8cc6c73d51f9f9a, type: 3}
@@ -391,6 +393,7 @@ MonoBehaviour:
   - {fileID: 7520235157616121155, guid: 49ce6efa1b6c24c40ae475a886c679df, type: 3}
   - {fileID: 4744166447442504993, guid: 006f10901bceb4fc189db032adc6c501, type: 3}
   - {fileID: 3509247088783451891, guid: cfa8708db4cc540bb9fb71ea7702909f, type: 3}
+  gemSpeed: 7
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
