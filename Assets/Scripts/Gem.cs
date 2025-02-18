@@ -2,13 +2,23 @@ using UnityEngine;
 
 public class Gem : MonoBehaviour
 {
+    public enum GemType
+    {
+        BLUE,
+        GREEN,
+        RED,
+        YELLOW,
+        PURPLE,
+    }
     [HideInInspector] public Vector2Int posIndex;
     [HideInInspector] public Board board;
+    public GemType type;
     private Vector2 firstTouchPosition;
     private Vector2 finalTouchPosition;
     private Gem otherGem;
     private bool mousePressed;
     private float swipeAngle = 0;
+    public bool isMatched;
     private void Update()
     {
         if (Vector2.Distance(transform.position, posIndex) > .01f)

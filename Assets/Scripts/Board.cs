@@ -6,12 +6,22 @@ public class Board : MonoBehaviour
     [HideInInspector] public int width = 7;
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private Gem[] gems;
+    private MatchingFinder matchingFinder;
     public Gem[,] allGems;
     public float gemSpeed;
+    private void Awake()
+    {
+        matchingFinder = FindObjectOfType<MatchingFinder>();
+
+    }
     private void Start()
     {
         allGems = new Gem[width, height];
         SetUpBackground();
+    }
+    private void Update()
+    {
+        matchingFinder.FindAllMatches();
     }
     private void SetUpBackground()
     {

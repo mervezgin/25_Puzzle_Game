@@ -52,6 +52,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6204587889924436174, guid: c34134507f7f54e6b8cc6c73d51f9f9a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.7897436
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204587889924436174, guid: c34134507f7f54e6b8cc6c73d51f9f9a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.8923077
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634170300799077951, guid: c34134507f7f54e6b8cc6c73d51f9f9a, type: 3}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8744453466316656267, guid: c34134507f7f54e6b8cc6c73d51f9f9a, type: 3}
       propertyPath: m_Name
       value: Gem - Purple Variant
