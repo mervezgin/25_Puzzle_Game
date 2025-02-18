@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class MatchingFinder : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class MatchingFinder : MonoBehaviour
     }
     public void FindAllMatches()
     {
+        //currentMatches.Clear();
         for (int x = 0; x < board.width; x++)
         {
             for (int y = 0; y < board.height; y++)
@@ -29,6 +31,9 @@ public class MatchingFinder : MonoBehaviour
                                 currentGem.isMatched = true;
                                 leftGem.isMatched = true;
                                 rightGem.isMatched = true;
+                                currentMatches.Add(currentGem);
+                                currentMatches.Add(leftGem);
+                                currentMatches.Add(rightGem);
                             }
                         }
                     }
@@ -43,11 +48,18 @@ public class MatchingFinder : MonoBehaviour
                                 currentGem.isMatched = true;
                                 aboveGem.isMatched = true;
                                 belowGem.isMatched = true;
+                                currentMatches.Add(currentGem);
+                                currentMatches.Add(aboveGem);
+                                currentMatches.Add(belowGem);
                             }
                         }
                     }
                 }
             }
+        }
+        if (currentMatches.Count > 0)
+        {
+            currentMatches = currentMatches.Distinct().ToList();
         }
     }
 }

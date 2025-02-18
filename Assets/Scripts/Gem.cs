@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Gem : MonoBehaviour
@@ -15,6 +16,7 @@ public class Gem : MonoBehaviour
     public GemType type;
     private Vector2 firstTouchPosition;
     private Vector2 finalTouchPosition;
+    private Vector2Int previousPosition;
     private Gem otherGem;
     private bool mousePressed;
     private float swipeAngle = 0;
@@ -58,6 +60,7 @@ public class Gem : MonoBehaviour
     }
     private void MovePieces()
     {
+        previousPosition = posIndex;
         if (swipeAngle < 45 && swipeAngle > -45 && posIndex.x < board.width - 1)
         {
             otherGem = board.allGems[posIndex.x + 1, posIndex.y];
@@ -84,5 +87,22 @@ public class Gem : MonoBehaviour
         }
         board.allGems[posIndex.x, posIndex.y] = this;
         board.allGems[otherGem.posIndex.x, otherGem.posIndex.y] = otherGem;
+        StartCoroutine(CheckMoveCo());
+    }
+    public IEnumerator CheckMoveCo()
+    {
+        yield return new WaitForSeconds(0.5f);
+        board.matchingFinder.FindAllMatches();
+        if (otherGem != null)
+        {
+            if (!isMatched && !otherGem.isMatched)
+            {
+                otherGem.posIndex = posIndex;
+                posIndex = previousPosition;
+
+                board.allGems[posIndex.x, posIndex.y] = this;
+                board.allGems[otherGem.posIndex.x, otherGem.posIndex.y] = otherGem;
+            }
+        }
     }
 }

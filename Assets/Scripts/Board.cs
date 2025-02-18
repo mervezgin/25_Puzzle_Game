@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
+    [HideInInspector] public MatchingFinder matchingFinder;
     [HideInInspector] public int height = 7;
     [HideInInspector] public int width = 7;
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private Gem[] gems;
-    private MatchingFinder matchingFinder;
     public Gem[,] allGems;
     public float gemSpeed;
     private void Awake()
