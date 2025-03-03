@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: type
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8634170300799077951, guid: c34134507f7f54e6b8cc6c73d51f9f9a, type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 5304249001094936191, guid: 6adb79e336db24c74932fb84797a92dc, type: 3}
     - target: {fileID: 8744453466316656267, guid: c34134507f7f54e6b8cc6c73d51f9f9a, type: 3}
       propertyPath: m_Name
       value: Gem - Purple Variant

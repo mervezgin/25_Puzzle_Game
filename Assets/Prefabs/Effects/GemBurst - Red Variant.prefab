@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1009568812914587839, guid: cb6b6c278081a4cfabe34b4b4d3cb829, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009568812914587839, guid: cb6b6c278081a4cfabe34b4b4d3cb829, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.007843138
       objectReference: {fileID: 0}
