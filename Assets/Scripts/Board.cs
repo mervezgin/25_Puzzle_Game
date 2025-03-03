@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
+    public enum BoardState
+    {
+        WAIT,
+        MOVE
+    }
+    public BoardState currentBoardState = BoardState.MOVE;
     [HideInInspector] public MatchingFinder matchingFinder;
     [HideInInspector] public int height = 7;
     [HideInInspector] public int width = 7;
@@ -23,7 +29,7 @@ public class Board : MonoBehaviour
     }
     private void Update()
     {
-        matchingFinder.FindAllMatches();
+        // matchingFinder.FindAllMatches();
     }
     private void SetUpBackground()
     {
@@ -121,15 +127,20 @@ public class Board : MonoBehaviour
     }
     private IEnumerator FillBoardCo()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
         RefillBoard();
 
         yield return new WaitForSeconds(0.5f);
         matchingFinder.FindAllMatches();
         if (matchingFinder.currentMatches.Count > 0)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(.5f);
             DestroyMatches();
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.5f);
+            currentBoardState = BoardState.MOVE;
         }
     }
     private void RefillBoard()
