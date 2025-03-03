@@ -91,7 +91,7 @@ public class Gem : MonoBehaviour
     }
     public IEnumerator CheckMoveCo()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         board.matchingFinder.FindAllMatches();
         if (otherGem != null)
         {

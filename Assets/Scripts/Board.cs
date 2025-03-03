@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Board : MonoBehaviour
@@ -49,7 +50,7 @@ public class Board : MonoBehaviour
     }
     private void SpawnGem(Vector2Int position, Gem gemToSpawn)
     {
-        Gem gem = Instantiate(gemToSpawn, new Vector3(position.x, position.y, 0f), Quaternion.identity);
+        Gem gem = Instantiate(gemToSpawn, new Vector3(position.x, position.y + height, 0f), Quaternion.identity);
         gem.transform.parent = transform;
         gem.name = "Gem - " + position.x + ", " + position.y;
         allGems[position.x, position.y] = gem;
@@ -143,6 +144,27 @@ public class Board : MonoBehaviour
                     SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
                 }
             }
+        }
+        CheckMisplacedGems();
+    }
+    private void CheckMisplacedGems()
+    {
+        List<Gem> foundGems = new List<Gem>();
+        foundGems.AddRange(FindObjectsOfType<Gem>());
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (foundGems.Contains(allGems[x, y]))
+                {
+                    foundGems.Remove(allGems[x, y]);
+                }
+            }
+        }
+
+        foreach (Gem g in foundGems)
+        {
+            Destroy(g.gameObject);
         }
     }
 }
