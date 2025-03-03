@@ -440,6 +440,8 @@ MonoBehaviour:
   - {fileID: 7520235157616121155, guid: 49ce6efa1b6c24c40ae475a886c679df, type: 3}
   - {fileID: 4744166447442504993, guid: 006f10901bceb4fc189db032adc6c501, type: 3}
   - {fileID: 3509247088783451891, guid: cfa8708db4cc540bb9fb71ea7702909f, type: 3}
+  bomb: {fileID: 6352118577227406939, guid: ce006bdbc40244901bee9d783a271422, type: 3}
+  bombChance: 2
   gemSpeed: 7
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

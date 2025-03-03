@@ -10,6 +10,7 @@ public class Gem : MonoBehaviour
         RED,
         YELLOW,
         PURPLE,
+        BOMB
     }
     [HideInInspector] public Vector2Int posIndex;
     [HideInInspector] public Board board;
@@ -20,8 +21,10 @@ public class Gem : MonoBehaviour
     private Vector2Int previousPosition;
     private Gem otherGem;
     private bool mousePressed;
-    private float swipeAngle = 0;
     public bool isMatched;
+    private float swipeAngle = 0;
+    public int blastSize = 2;
+
     private void Update()
     {
         if (Vector2.Distance(transform.position, posIndex) > .01f)
