@@ -369,6 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8371868f83be4e1b8dab0fb13974c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMatches: []
 --- !u!4 &685305266
 Transform:
   m_ObjectHideFlags: 0
@@ -428,6 +429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160c5ee89da8448beb3bf0302247f261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentBoardState: 1
+  matchingFinder: {fileID: 0}
   height: 7
   width: 7
   tilePrefab: {fileID: 4322308662581976329, guid: 201b502e00e454fdda56f14293d5566e, type: 3}
