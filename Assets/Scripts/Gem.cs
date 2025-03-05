@@ -24,6 +24,7 @@ public class Gem : MonoBehaviour
     public bool isMatched;
     private float swipeAngle = 0;
     public int blastSize = 2;
+    public int scoreValue = 10;
 
     private void Update()
     {

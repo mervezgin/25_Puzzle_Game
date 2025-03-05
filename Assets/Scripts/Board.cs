@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Board : MonoBehaviour
 {
@@ -111,6 +112,7 @@ public class Board : MonoBehaviour
         {
             if (matchingFinder.currentMatches[i])
             {
+                ScoreCheck(matchingFinder.currentMatches[i]);
                 DestroyMatchedGemAt(matchingFinder.currentMatches[i].posIndex);
             }
         }
@@ -224,6 +226,10 @@ public class Board : MonoBehaviour
             }
             StartCoroutine(FillBoardCo());
         }
+    }
+    public void ScoreCheck(Gem gemToCheck)
+    {
+        roundManager.currentScore += gemToCheck.scoreValue;
     }
 }
 

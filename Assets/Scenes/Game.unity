@@ -2015,6 +2015,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundTime: 60
+  currentScore: 0
+  displayScore: 0
+  scoreSpeed: 5
 --- !u!4 &2005032032
 Transform:
   m_ObjectHideFlags: 0
