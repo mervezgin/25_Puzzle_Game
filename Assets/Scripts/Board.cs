@@ -22,11 +22,12 @@ public class Board : MonoBehaviour
     public Gem bomb;
     public float bombChance = 2f;
     public float gemSpeed;
+    private float bonusMulti;
+    public float bonusAmount = 0.5f;
     private void Awake()
     {
         matchingFinder = FindObjectOfType<MatchingFinder>();
         roundManager = FindObjectOfType<RoundManager>();
-
     }
     private void Start()
     {
@@ -150,6 +151,8 @@ public class Board : MonoBehaviour
         matchingFinder.FindAllMatches();
         if (matchingFinder.currentMatches.Count > 0)
         {
+            bonusMulti++;
+
             yield return new WaitForSeconds(.5f);
             DestroyMatches();
         }
@@ -157,6 +160,7 @@ public class Board : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
             currentBoardState = BoardState.MOVE;
+            bonusMulti = 0f;
         }
     }
     private void RefillBoard()
@@ -230,6 +234,11 @@ public class Board : MonoBehaviour
     public void ScoreCheck(Gem gemToCheck)
     {
         roundManager.currentScore += gemToCheck.scoreValue;
+        if (bonusMulti > 0)
+        {
+            float bonusToAdd = gemToCheck.scoreValue * bonusMulti * bonusAmount;
+            roundManager.currentScore += Mathf.RoundToInt(bonusToAdd);
+        }
     }
 }
 

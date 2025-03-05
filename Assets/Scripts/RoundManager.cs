@@ -8,6 +8,7 @@ public class RoundManager : MonoBehaviour
     public float roundTime = 60f;
     private bool endingRound = false;
     public int currentScore;
+    public int scoreTarget1, scoreTarget2, scoreTarget3;
     public float displayScore;
     public float scoreSpeed;
     private void Awake()
@@ -38,5 +39,25 @@ public class RoundManager : MonoBehaviour
     private void WinCheck()
     {
         uiManager.roundOverScreen.SetActive(true);
+        uiManager.winScoreText.text = currentScore.ToString();
+        if (currentScore >= scoreTarget3)
+        {
+            uiManager.winScoreText.text = "Congratulations ! You earned 3 stars!";
+            uiManager.winStars3.SetActive(true);
+        }
+        else if (currentScore >= scoreTarget2)
+        {
+            uiManager.winScoreText.text = "Congratulations ! You earned 2 stars!";
+            uiManager.winStars2.SetActive(true);
+        }
+        else if (currentScore >= scoreTarget1)
+        {
+            uiManager.winScoreText.text = "Congratulations ! You earned 1 star!";
+            uiManager.winStars1.SetActive(true);
+        }
+        else
+        {
+            uiManager.winScoreText.text = "Oh no! No stars for you! Try again?";
+        }
     }
 }
