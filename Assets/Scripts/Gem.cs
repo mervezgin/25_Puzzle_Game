@@ -40,7 +40,7 @@ public class Gem : MonoBehaviour
         if (mousePressed && Input.GetMouseButtonUp(0))
         {
             mousePressed = false;
-            if (board.currentBoardState == Board.BoardState.MOVE)
+            if (board.currentBoardState == Board.BoardState.MOVE && board.roundManager.roundTime > 0)
             {
                 finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CalculateAngle();
@@ -54,7 +54,7 @@ public class Gem : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (board.currentBoardState == Board.BoardState.MOVE)
+        if (board.currentBoardState == Board.BoardState.MOVE && board.roundManager.roundTime > 0)
         {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePressed = true;

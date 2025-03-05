@@ -12,6 +12,7 @@ public class Board : MonoBehaviour
     }
     public BoardState currentBoardState = BoardState.MOVE;
     [HideInInspector] public MatchingFinder matchingFinder;
+    [HideInInspector] public RoundManager roundManager;
     [HideInInspector] public int height = 7;
     [HideInInspector] public int width = 7;
     [SerializeField] private GameObject tilePrefab;
@@ -23,6 +24,7 @@ public class Board : MonoBehaviour
     private void Awake()
     {
         matchingFinder = FindObjectOfType<MatchingFinder>();
+        roundManager = FindObjectOfType<RoundManager>();
 
     }
     private void Start()
