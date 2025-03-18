@@ -14,8 +14,8 @@ public class Board : MonoBehaviour
     public BoardState currentBoardState = BoardState.MOVE;
     [HideInInspector] public MatchingFinder matchingFinder;
     [HideInInspector] public RoundManager roundManager;
-    [HideInInspector] public int height = 7;
-    [HideInInspector] public int width = 7;
+    public int height = 7;
+    public int width = 7;
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private Gem[] gems;
     public Gem[,] allGems;
